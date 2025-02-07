@@ -1,4 +1,3 @@
-
 from book import Book
 from customer import Customer
 from library import Library
@@ -72,17 +71,10 @@ class Library:
 
 def main():
     library = Library()
-    book1 = Book("Love in the Time of Cholera", "Gabriel Garcia Marquez", "Romance", 101)
-    book2 = Book("1984", "George Orwell", "Fiction", 102)
-    book3 = Book("Sapiens", "Yuval Noah Harari", "Non-Fiction", 103)
-
-    library.add_book(book1)
-    library.add_book(book2)
-    library.add_book(book3)
 
     while True:
         print("\nLibrary Menu:")
-        print("1. Check book availability")
+        print("1. Add a book")
         print("2. Rent a book")
         print("3. Return a book")
         print("4. Show inventory")
@@ -92,22 +84,21 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
+            title = input("Enter the book title: ")
+            author = input("Enter the book author: ")
+            genre = input("Enter the book genre: ")
             book_id = int(input("Enter the book ID: "))
-            book = library.get_book(book_id)
-            if book:
-                if book.is_available:
-                    print(f"{book.title} by {book.author} is available.")
-                else:
-                    print(f"{book.title} by {book.author} is currently rented.")
-            else:
-                print("Book not found.")
+            book = Book(title, author, genre, book_id)
+            library.add_book(book)
+            print(f"{book.title} by {book.author} added successfully.")
 
         elif choice == "2":
             book_id = int(input("Enter the book ID: "))
             customer_name = input("Enter your name: ")
             customer_email = input("Enter your email: ")
+            rental_period = int(input("Enter the rental period (in days): "))
             customer = Customer(customer_name, customer_email)
-            rental = library.rent_book(customer, book_id, 7)
+            rental = library.rent_book(customer, book_id, rental_period)
             if rental:
                 print(f"{rental.book.title} by {rental.book.author} rented successfully.")
             else:
@@ -137,6 +128,10 @@ def main():
             break
 
         else:
-            print("Does not exist.Please choose valid option")
+            print("Invalid choice. Please choose a valid option.")
+
+if __name__ == "__main__":
+    main()
+
 
            
