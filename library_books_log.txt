@@ -1,2 +1,9 @@
 Book Added: 'Bluey' by Blue (Animation) - ID: 101
 Book Added: 'juik' by juk (horror) - ID: 101
+Book Added: 'Rosey ' by Thar (Romance) - ID: 101
+Book Added: 'Blue and ME' by True (Action) - ID: 102
+Book Added: 'Rain' by Treni (Comedy) - ID: 103
+Book Added: 'Missy' by Lec (Autobiography) - ID: 104
+Book Added: 'Rosey ' by Tren (Action) - ID: 105
+Book Added: 'Tommy' by Action (Romance) - ID: 106
+Book Added: 'Rivers' by Action Romance (Horror) - ID: 107

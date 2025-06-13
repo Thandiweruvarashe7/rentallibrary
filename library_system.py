@@ -1,4 +1,4 @@
-from library import Library 
+from library import Library
 from book import Book
 from rental import Rental
 from customer import Customer
@@ -24,7 +24,7 @@ class LibrarySystem:
                 author = input("Enter the book author: ")
                 genre = input("Enter the book genre: ")
                 self.library.add_book(title, author, genre)
-            
+
             elif choice == "2":
                 self.rent_book_process()
             elif choice == "3":
@@ -41,18 +41,42 @@ class LibrarySystem:
 
     def rent_book_process(self):
         name = input("Enter your name: ")
+        if name.isdigit():
+            print("Error: Name cannot be a number.")
+            return
+
         email = input("Enter your email: ")
+        if "@" not in email or "." not in email:
+            print("Error: Invalid email format.")
+            return
+
         customer = Customer(name, email)
-        book_id = int(input("Enter the book ID: "))
-        rental_period = int(input("Enter the rental period (in days): "))
-        self.library.rent_book(customer, book_id, rental_period)
+        try:
+            book_id = int(input("Enter the book ID: "))
+            rental_period = int(input("Enter the rental period (in days): "))
+            self.library.rent_book(customer, book_id, rental_period)
+        except ValueError:
+            print("Error: Please enter valid numbers for book ID and rental period.")
 
     def return_book_process(self):
         name = input("Enter your name: ")
+        if name.isdigit():
+            print("Error: Name cannot be a number.")
+            return
+
         email = input("Enter your email: ")
+        if "@" not in email or "." not in email:
+            print("Error: Invalid email format.")
+            return
+
         customer = Customer(name, email)
-        book_id = int(input("Enter the book ID: "))
-        self.library.return_book(customer, book_id)
+        try:
+            book_id = int(input("Enter the book ID: "))
+            self.library.return_book(customer, book_id)
+        except ValueError:
+            print("Error: Book ID must be a number.")
+
+  
 
 
 
