@@ -1,2 +1,4 @@
-Book Added: 'Bluey' by Blue (Animation) - ID: 101
-Book Added: 'juik' by juk (horror) - ID: 101
+Book Added: 'Bluey' by Rey (Comedy) - ID: 101
+Book Added: 'Tears' by Trey (Romance) - ID: 102
+Book Added: 'Rejoice' by Reymond (Action Comedy) - ID: 103
+Book Rented: 'Bluey' by Rey (Comedy) - ID: 101 | Renter: Thaa | Due: 2025-06-21
