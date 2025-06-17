@@ -10,7 +10,7 @@ class Library:
         self.book_id_counter = 101 
         self.log_file = "library_books_log.txt"
         self.data_file = "library_data.pkl"
-        self.load_data()  # load books and rentals if previously saved
+        self.load_data() 
 
     def add_book(self, title, author, genre):
         book_id = self.generate_book_id() 
@@ -18,7 +18,7 @@ class Library:
         self.books.append(book) 
         self.log_book(f"Book Added: {book}")
         print(f"Book added: {book}")
-        self.save_data()  # save after adding book
+        self.save_data()  
 
     def generate_book_id(self):
         new_id = self.book_id_counter
@@ -41,7 +41,7 @@ class Library:
                 )
                 self.log_book(log_entry) 
                 print(f"{customer.name} rented '{book.title}' for {rental_period} days.")
-                self.save_data()  # save after renting
+                self.save_data()  
                 return
         print("Book not available for rent.")
 
@@ -54,7 +54,7 @@ class Library:
                 log_entry = f"Book Returned: {rental.book} | Renter: {customer.name}"
                 self.log_book(log_entry)  
                 print(f"{customer.name} returned '{rental.book.title}'.")
-                self.save_data()  # save after return
+                self.save_data()  
                 return
         print("This book was not rented by you or does not exist.")
 
@@ -82,7 +82,7 @@ class Library:
             with open(self.data_file, "rb") as f:
                 self.books, self.rentals, self.book_id_counter = pickle.load(f)
         except (FileNotFoundError, EOFError, pickle.UnpicklingError):
-            pass  # Start fresh if file doesn't exist or is corrupted
+            pass  
 
 
 
